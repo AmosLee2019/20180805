@@ -1,0 +1,24 @@
+var app = require("./../core/app.js").instance;
+
+module.exports = function () {
+    var onStart = function (serverID, serviceType, serverIP, serverPort, custom) {
+
+    };
+
+    var onClientIn = function (session) {
+
+    };
+
+    var onClientOut = function (session) {
+    };
+
+    var service = {};
+
+    service.hello = function (text,cb) {
+        console.log("接收到客户端的消息了:"+text);
+        cb({mes:"客户端你好，我已经接受到你的消息了"})
+    }
+    return {
+        service: service, onClientIn: onClientIn, onClientOut: onClientOut, onStart: onStart
+    };
+}
